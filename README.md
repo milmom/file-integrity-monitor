@@ -1,1 +1,1 @@
-# file-intergrity-monitor
+# file-integrity-monitor
