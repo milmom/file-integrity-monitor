@@ -6,7 +6,7 @@ def scan_folder(folder):
   for root, dirs, files in os.walk(folder):
     for name in files:
       current_root = os.path.join(root, name)
-      current hash = hash_file(current_root)
+      current_hash = hash_file(current_root)
       file_to_hash[current_root] = current hash
   return file_to_hash
       
