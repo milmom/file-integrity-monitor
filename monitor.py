@@ -16,3 +16,18 @@ def hash_file(path):
     file_bytes = f.read()
     file_hash = hashlib.sha256(file_bytes).hexdigest()
     return file_hash
+
+def compare(old, new):
+  status = {'changed': [], 'added': [], 'deleted': []}
+  for path in new:
+    if path in new and path in old and old[path] != new[path]:
+      status('changed').append(path)
+    
+    if path in new and path not in old:
+      status('added').append(path)
+
+  for path in old:
+    if path in old and path not in new:
+      status('deleted').append(path)
+
+  return status
